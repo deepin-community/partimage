@@ -1,0 +1,2 @@
+rm_conffile /etc/init.d/partimaged 0.6.9-10~
+rm_conffile /etc/default/partimaged 0.6.9-10~

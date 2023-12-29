@@ -1,0 +1,5 @@
+# Debian patches for partimage
+01-ftbfs-zlib.patch
+02-openssl.patch
+03-openssl11.patch
+04-fix-FTBFS-glic-2.28.patch

@@ -1,0 +1,12 @@
+[Unit]
+Description=Partition Image Server
+
+[Service]
+Type=simple
+Environment=TERM=linux
+Environment=TARGET=/var/lib/partimaged
+EnvironmentFile=-/etc/default/partimaged
+ExecStart=/usr/sbin/partimaged -d $TARGET
+
+[Install]
+WantedBy=multi-user.target

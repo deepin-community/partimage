@@ -1,15 +1,61 @@
-Source: template-repository
-Section: unknown
+Source: partimage
+Section: admin
 Priority: optional
-Maintainer: Tsic404 <liuheng@deepin.org>
-Build-Depends: debhelper (>= 11)
-Standards-Version: 4.1.3
-Homepage: https://github.com/deepin-community/template-repository
-#Vcs-Browser: https://salsa.debian.org/debian/deepin-community-template-repository
-#Vcs-Git: https://salsa.debian.org/debian/deepin-community-template-repository.git
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends:
+ debhelper-compat (= 13),
+ libbz2-dev,
+ libnewt-dev,
+ zlib1g-dev,
+ comerr-dev,
+ libext2fs-dev,
+ libssl-dev,
+ libpam0g-dev,
+ gettext
+Standards-Version: 4.6.2
+Rules-Requires-Root: no
+Vcs-Git: https://salsa.debian.org/debian/partimage.git
+Vcs-Browser: https://salsa.debian.org/debian/partimage
+Homepage: https://www.partimage.org
 
-Package: template-repository
+Package: partimage-server
 Architecture: any
-Depends: ${shlibs:Depends}, ${misc:Depends}
-Description: <insert up to 60 chars description>
- <insert long description, indented with spaces>
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, openssl, adduser
+Recommends: db-util
+Description: server to use partimage across a network
+ Partition Image is a partition imaging utility. It lets you backup up your
+ partitions from a client to a server.
+ .
+ All data will be transferred encrypted using SSL.
+
+Package: partimage
+Architecture: any
+Pre-Depends: ${misc:Pre-Depends}
+Depends: ${shlibs:Depends}, ${misc:Depends}, fdisk
+Recommends: e2fsprogs
+Description: backup partitions into a compressed image file
+ Partition Image is a partition imaging utility. It has support for the
+ following file systems:
+  * Ext2/3, the Linux standard
+  * ReiserFS, a journalised and powerful file system
+  * FAT16/32, DOS and Windows file systems
+  * HPFS, IBM OS/2 file system
+  * JFS, journalised file system, from IBM, used on AIX
+  * XFS, another journalised and efficient file system, from SGI, used on Irix
+  * UFS (beta), Unix file system
+  * HFS (beta), MacOS File system
+  * NTFS (experimental), Windows NT, 2000 and XP
+ Only used blocks are copied and stored into an image file.
+ The image file can be compressed in the GZIP/BZIP2 formats to save disk space,
+ and split into multiple files to be copied onto removable media (ZIP for
+ example), burned on a CD-R, etc.
+ .
+ This makes it possible to save a full Linux/Windows system with a single
+ operation. In case of a problem (virus, crash, error, etc.), you just have
+ to restore, and after several minutes, your entire system is restored
+ (boot, files, etc.), and fully working.
+ .
+ This is very useful when installing the same software on many machines: just
+ install one of them, create an image, and restore the image on all other
+ machines.
