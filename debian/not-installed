@@ -1,0 +1,14 @@
+usr/share/doc/partimage/partimage.lsm
+
+# installed via dh_installchangelogs
+usr/share/doc/partimage/ChangeLog
+
+# we provide a debian/copyright
+usr/share/doc/partimage/COPYING
+
+# installed via debian/$pkg.docs
+usr/share/doc/partimage/AUTHORS
+usr/share/doc/partimage/BUGS
+usr/share/doc/partimage/COPYING
+usr/share/doc/partimage/README
+usr/share/doc/partimage/README.partimaged
